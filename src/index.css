@@ -1,0 +1,118 @@
+html {
+  box-sizing: border-box;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: #212121;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.Navigation-link {
+  color: #000000;
+  text-decoration: none;
+}
+
+.Navigation-link-active {
+  color: #ff0000;
+}
+
+/* .Additional-information {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  padding: 10px 0;
+} */
+
+p,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+.Nav-list {
+  list-style: none;
+  font-size: 18px;
+  display: flex;
+  border-bottom: 2px solid black;
+  margin: 0;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.Nav-item:not(:last-child) {
+  margin-right: 20px;
+}
+
+/* HomePage */
+.Home {
+  font-size: 30px;
+}
+
+/* ShowDetails */
+
+.About {
+  display: flex;
+  flex-direction: row;
+  margin-left: 15px;
+}
+
+.Image {
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.Details {
+  display: flex;
+  flex-direction: column;
+}
+
+.addInfo {
+  padding: 15px;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+.Additional-information {
+  margin-top: 20px;
+  margin-left: 15px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #9c9c9c;
+  border-top: 2px solid #9c9c9c;
+}
+
+.Button {
+  margin-bottom: 10px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.Loader {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.Reviews {
+  margin-left: 15px;
+}
