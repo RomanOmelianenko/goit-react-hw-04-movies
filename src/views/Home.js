@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import moviesAPI from '../services/movies-api';
 import Notification from '../utils/Notification';
 import Loader from '../utils/Loader';
 
-import { success, error } from '@pnotify/core';
-import '@pnotify/core/dist/PNotify.css';
-import '@pnotify/core/dist/BrightTheme.css';
+// import { success, error } from '@pnotify/core';
+// import '@pnotify/core/dist/PNotify.css';
+// import '@pnotify/core/dist/BrightTheme.css';
 
 class Home extends Component {
+
+    static propTypes = {
+        trending: PropTypes.array,
+        error: PropTypes.string,
+        loading: PropTypes.bool
+    };
+
     state = {
         trending: [],
         error: null,
@@ -17,7 +25,7 @@ class Home extends Component {
 
     componentDidMount() {
         this.setState({ loading: true }); 
-        const {trending} = this.state;
+        // const {trending} = this.state;
 
         moviesAPI
             .fetchMoviesTranding(this.props.movieId)
@@ -25,17 +33,17 @@ class Home extends Component {
             .catch(error => this.setState({ error }))
             .finally(() => this.setState({ loading: false }));
         
-        if (trending !== []) {
-            success({
-                title: 'Success',
-                text: 'Images uploaded!'
-            });
-        } else {
-            error({
-                title: 'Error',
-                text: 'Something went wrong!'
-            });
-        }
+        // if (trending !== []) {
+        //     success({
+        //         title: 'Success',
+        //         text: 'Movies uploaded!'
+        //     });
+        // } else {
+        //     error({
+        //         title: 'Error',
+        //         text: 'Something went wrong!'
+        //     });
+        // }
     };
 
     render() {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink, Switch, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Cast from './Cast';
 import Reviews from './Rewies';
 import moviesAPI from '../services/movies-api';
@@ -9,6 +10,12 @@ import Loader from '../utils/Loader';
 import '../index.css';
 
 class ShowDetails extends Component {
+
+    static propTypes = {
+        showDetails: PropTypes.array,
+        loading: PropTypes.bool
+    };
+
     state = {
         showDetails: null,
         loading: false
@@ -27,13 +34,14 @@ class ShowDetails extends Component {
     handleGoBack = () => {
        
         const { state } = this.props.location;
-
+        // console.log(this.props.location);
         if (state && state.from) {
             
             return this.props.history.push(state.from)
         };
 
         this.props.history.push(RoutesConfig.movies);
+        this.props.history.push(RoutesConfig.home);
     };
 
     render() {
@@ -43,20 +51,20 @@ class ShowDetails extends Component {
 
         return (
             <>
-                    <button
-                        to="/"
-                        type="button"
-                        onClick={this.handleGoBack}
-                        className="Button">
-                        &lArr; Go back
-                    </button>
-                    <br />
+                <button
+                    to="/"
+                    type="button"
+                    onClick={this.handleGoBack}
+                    className="Button">
+                    &lArr; Go back
+                </button>
+                <br />
                     
-                    {error && <Notification message={`Whoops, something went wrong: ${error.status_message}`} />}
+                {error && <Notification message={`Whoops, something went wrong: ${error.status_message}`} />}
 
-                    {loading && <Loader/>}
+                {loading && <Loader/>}
 
-                    {showDetails && (
+                {showDetails && (
                     <>  
                         <div className="About">
                             <img className="Image"

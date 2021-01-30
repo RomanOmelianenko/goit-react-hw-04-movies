@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, /*Redirect*/ } from 'react-router-dom';
 import Layout from './Layout';
 import RoutesConfig from '../routes';
 import Loader from '../utils/Loader';
@@ -28,6 +28,7 @@ const App = () => (
                 <Route path={RoutesConfig.movies} exact component={AsyncMovies} />
                 <Route path={RoutesConfig.showDetails} component={AsyncShowDetails} />
                 <Route component={AsyncNotFound} />
+                {/* <Redirect to={RoutesConfig.home} /> */}
             </Switch>
         </Suspense>
     </Layout>

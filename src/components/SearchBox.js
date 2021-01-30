@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { success, error } from '@pnotify/core';
-import '@pnotify/core/dist/PNotify.css';
-import '@pnotify/core/dist/BrightTheme.css';
+// import { success, error } from '@pnotify/core';
+// import '@pnotify/core/dist/PNotify.css';
+// import '@pnotify/core/dist/BrightTheme.css';
 
 class SearchBox extends Component {
     
@@ -18,22 +18,22 @@ class SearchBox extends Component {
     handleSubmit = e => {
         e.preventDefault();
 
-        const {value} = this.state;
+        // const {value} = this.state;
 
         this.props.onSubmit(this.state.value);
         this.setState({ value: '' });
 
-        if (value === '') {
-            error({
-                title: 'Error',
-                text: 'Something went wrong!'
-            });
-        } else {
-            success({
-                title: 'Success',
-                text: 'Images uploaded!'
-            });
-        }
+        // if (value === '') {
+        //     error({
+        //         title: 'Error',
+        //         text: 'Input movie name!'
+        //     });
+        // } else {
+        //     success({
+        //         title: 'Success',
+        //         text: 'Movie list loaded!'
+        //     });
+        // }
     };
 
     render() {

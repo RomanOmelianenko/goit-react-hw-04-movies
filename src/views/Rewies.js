@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import moviesAPI from '../services/movies-api';
 import Notification from '../utils/Notification';
 import Loader from '../utils/Loader';
 
 class Rewies extends Component {
+
+    static propTypes = {
+        reviews: PropTypes.array,
+        error: PropTypes.string,
+        loading: PropTypes.bool
+    };
+
     state = {
         reviews: [],
         error: null,
@@ -35,7 +43,7 @@ class Rewies extends Component {
                    <ul>
                         {reviews.map(review => (
                             <li key={review.id}>
-                                <p>Author: {review.author}</p>
+                                <p className="AuthorName">Author: {review.author}</p>
                                 <p>{review.content}</p>
                             </li>
                         ))}

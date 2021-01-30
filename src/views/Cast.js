@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import moviesAPI from '../services/movies-api';
 import Notification from '../utils/Notification';
 import Loader from '../utils/Loader';
+import '../index.css';
 
 class Cast extends Component {
+
+    static propTypes = {
+        cast: PropTypes.array,
+        error: PropTypes.string,
+        loading: PropTypes.bool
+    };
+
     state = {
         cast: [],
         error: null,
@@ -31,19 +40,21 @@ class Cast extends Component {
                 {loading && <Loader/>}
 
                 {cast && (
-                    <ul>
+                    <ul className="Cast">
                         {cast.map(actor => (
-                            <li key={actor.credit_id}>
+                            <li key={actor.credit_id}
+                                className="CastList"
+                            >
                                 {actor.profile_path && (
                                     <img
-                                            src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
-                                            alt={actor.name}
-                                            width="100"
+                                        src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
+                                        alt={actor.name}
+                                        width="150"
                                     />
                                 )}
-                                <p className="cast-name">{actor.name}</p>
-                                <p className="cast-character">
-                                Character: {actor.character}
+                                <p className="CastName">{actor.name}</p>
+                                <p className="CastCharacter">
+                                    Character: {actor.character}
                                 </p>
                             </li>
                         ))}

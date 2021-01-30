@@ -7,6 +7,7 @@ const styles = {
     marginRight: 'auto',
     paddingLeft: 12,
     paddingRight: 12,
+    position: 'relative'
 };
 
 const Layout = ({ children }) => (

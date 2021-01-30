@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import getQueryParams from '../utils/getQueryParams';
 import SearchBox from '../components/SearchBox';
 import moviesAPI from '../services/movies-api';
@@ -7,6 +8,13 @@ import Notification from '../utils/Notification';
 import Loader from '../utils/Loader'; 
 
 class Movies extends Component {
+
+    static propTypes = {
+        searchMovies: PropTypes.array,
+        error: PropTypes.string,
+        loading: PropTypes.bool
+    };
+
     state = {
         searchMovies: [],
         error: null,
